@@ -1,0 +1,74 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Resources/df_CartoonCookies_userName.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Assets/Images/default_avatar.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Images/CircleMask.png" type="Texture" id=3]
+[ext_resource path="res://Resources/df_CartoonCookies.tres" type="DynamicFont" id=4]
+
+[node name="ShowPartecipantContainer" type="Control"]
+margin_left = 623.0
+margin_top = 99.0
+margin_right = 1263.0
+margin_bottom = 534.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LabelShowPartecipant" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -300.0
+margin_top = -105.0
+margin_right = 307.0
+margin_bottom = -72.0
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Nome Cognome"
+align = 1
+valign = 1
+
+[node name="ShowPartecipantPicture" type="TextureRect" parent="."]
+light_mask = 1024
+margin_left = 169.317
+margin_top = 19.8461
+margin_right = 469.317
+margin_bottom = 319.846
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 7
+
+[node name="Light2D" type="Light2D" parent="ShowPartecipantPicture"]
+position = Vector2( 150.902, 150.451 )
+scale = Vector2( 0.386281, 0.387409 )
+texture = ExtResource( 3 )
+mode = 3
+range_item_cull_mask = 1024
+
+[node name="ShowPartecipantAudioStream" type="AudioStreamPlayer" parent="."]
+
+[node name="ShowPartecipantPlayPauseButton" type="TextureButton" parent="."]
+margin_left = 394.536
+margin_top = 369.032
+margin_right = 434.536
+margin_bottom = 407.032
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PartecipantActiveCheckbox" type="CheckBox" parent="."]
+visible = false
+margin_left = 208.0
+margin_top = 374.0
+margin_right = 279.0
+margin_bottom = 400.0
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color_hover = Color( 0, 0.764706, 0.752941, 1 )
+custom_colors/font_color_pressed = Color( 0, 0.764706, 0.752941, 1 )
+shortcut_in_tooltip = false
+text = "Attivo"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}

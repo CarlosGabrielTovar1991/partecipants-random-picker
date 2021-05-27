@@ -1,0 +1,633 @@
+[gd_scene load_steps=23 format=2]
+
+[ext_resource path="res://Resources/df_CartoonCookies.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Scenes/Partecipants/Partecipants.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/Partecipants/AddPartecipants.gd" type="Script" id=3]
+[ext_resource path="res://Assets/Icons/users_approved.svg" type="Texture" id=4]
+[ext_resource path="res://Assets/Icons/cancel.svg" type="Texture" id=5]
+[ext_resource path="res://Resources/Styles/button_danger_hover.tres" type="StyleBox" id=6]
+[ext_resource path="res://Resources/Styles/button_danger.tres" type="StyleBox" id=7]
+[ext_resource path="res://Assets/Icons/close.svg" type="Texture" id=8]
+[ext_resource path="res://Assets/Images/default_avatar.png" type="Texture" id=9]
+[ext_resource path="res://Resources/df_CartoonCookies_textboxes.tres" type="DynamicFont" id=10]
+[ext_resource path="res://Assets/Icons/rumor.svg" type="Texture" id=11]
+[ext_resource path="res://Assets/Icons/add_image.svg" type="Texture" id=12]
+[ext_resource path="res://Scenes/Partecipants/ModifyPartecipants.gd" type="Script" id=13]
+[ext_resource path="res://Assets/Icons/add.svg" type="Texture" id=14]
+[ext_resource path="res://Assets/Icons/pen.svg" type="Texture" id=15]
+[ext_resource path="res://Assets/Icons/back.svg" type="Texture" id=16]
+[ext_resource path="res://Resources/df_CartoonCookies_mainlabel.tres" type="DynamicFont" id=17]
+[ext_resource path="res://Scenes/Partecipants/ShowPartecipantContainer.tscn" type="PackedScene" id=18]
+
+[sub_resource type="Theme" id=1]
+default_font = ExtResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+border_width_bottom = 4
+border_color = Color( 0, 0.764706, 0.752941, 1 )
+expand_margin_left = 10.0
+expand_margin_right = 10.0
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+border_width_bottom = 4
+border_color = Color( 0, 0.764706, 0.752941, 1 )
+expand_margin_left = 10.0
+expand_margin_right = 10.0
+
+[sub_resource type="Theme" id=4]
+
+[node name="Partecipants" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -0.995209
+margin_top = 0.00486755
+margin_right = -0.995239
+margin_bottom = 0.00488281
+theme = SubResource( 1 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_horizontal_guides_": [ 1059.7 ],
+"_edit_lock_": true,
+"_edit_vertical_guides_": [  ]
+}
+
+[node name="PopupAddPartecipant" type="Popup" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -352.0
+margin_top = -170.5
+margin_right = 352.0
+margin_bottom = 170.5
+popup_exclusive = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="PanelAddPartecipant" type="Panel" parent="PopupAddPartecipant"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -339.645
+margin_top = -151.285
+margin_right = 341.359
+margin_bottom = 154.715
+script = ExtResource( 3 )
+
+[node name="PlayPauseButton" type="TextureButton" parent="PopupAddPartecipant/PanelAddPartecipant"]
+margin_left = 587.209
+margin_top = 153.324
+margin_right = 625.209
+margin_bottom = 188.324
+
+[node name="AddPartecipantAudioStream" type="AudioStreamPlayer" parent="PopupAddPartecipant/PanelAddPartecipant"]
+
+[node name="LabelAddPartecipant" type="Label" parent="PopupAddPartecipant/PanelAddPartecipant"]
+margin_left = 28.5273
+margin_top = 22.8206
+margin_right = 391.527
+margin_bottom = 42.821
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0, 0.764706, 0.752941, 1 )
+text = "Aggiungere partecipante"
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AddPartecipantFormButtons" type="HBoxContainer" parent="PopupAddPartecipant/PanelAddPartecipant"]
+margin_left = 218.644
+margin_top = 256.892
+margin_right = 667.644
+margin_bottom = 294.892
+alignment = 2
+
+[node name="ConfirmPartecipantButton" type="Button" parent="PopupAddPartecipant/PanelAddPartecipant/AddPartecipantFormButtons"]
+margin_left = 155.0
+margin_right = 259.0
+margin_bottom = 38.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 0, 0.607843, 0.6, 1 )
+custom_colors/font_color_pressed = Color( 0, 0.607843, 0.6, 1 )
+disabled = true
+text = "Aggiunge"
+icon = ExtResource( 4 )
+align = 2
+
+[node name="ResetPartecipantButton" type="Button" parent="PopupAddPartecipant/PanelAddPartecipant/AddPartecipantFormButtons"]
+margin_left = 263.0
+margin_right = 354.0
+margin_bottom = 38.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 0, 0.607843, 0.6, 1 )
+custom_colors/font_color_pressed = Color( 0, 0.607843, 0.6, 1 )
+text = "Svuota"
+icon = ExtResource( 5 )
+align = 2
+
+[node name="CancelPartecipantButton" type="Button" parent="PopupAddPartecipant/PanelAddPartecipant/AddPartecipantFormButtons"]
+margin_left = 358.0
+margin_right = 449.0
+margin_bottom = 38.0
+custom_styles/hover = ExtResource( 6 )
+custom_styles/pressed = ExtResource( 6 )
+custom_styles/normal = ExtResource( 7 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 0, 0.764706, 0.752941, 1 )
+custom_colors/font_color_pressed = Color( 0, 0.764706, 0.752941, 1 )
+text = "Annulla"
+icon = ExtResource( 8 )
+align = 2
+
+[node name="PartecipantPictureDisplay" type="TextureRect" parent="PopupAddPartecipant/PanelAddPartecipant"]
+margin_left = 31.6442
+margin_top = 50.892
+margin_right = 220.644
+margin_bottom = 228.892
+texture = ExtResource( 9 )
+expand = true
+stretch_mode = 7
+
+[node name="Node" type="Node" parent="PopupAddPartecipant/PanelAddPartecipant/PartecipantPictureDisplay"]
+
+[node name="NameInput" type="LineEdit" parent="PopupAddPartecipant/PanelAddPartecipant"]
+margin_left = 253.644
+margin_top = 108.474
+margin_right = 606.644
+margin_bottom = 138.474
+rect_pivot_offset = Vector2( 287, 105 )
+custom_styles/focus = SubResource( 2 )
+custom_styles/normal = SubResource( 3 )
+custom_fonts/font = ExtResource( 10 )
+custom_colors/selection_color = Color( 0.345098, 0.14902, 0.772549, 1 )
+custom_colors/cursor_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_selected = Color( 0.184314, 0.0470588, 0.478431, 1 )
+caret_blink = true
+
+[node name="LabelAddName" type="Label" parent="PopupAddPartecipant/PanelAddPartecipant/NameInput"]
+margin_left = -22.5985
+margin_top = -16.1045
+margin_right = 340.401
+margin_bottom = 3.89551
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0, 0.764706, 0.752941, 1 )
+text = "Nome dal partecipante"
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="AddVoiceButton" type="Button" parent="PopupAddPartecipant/PanelAddPartecipant"]
+margin_left = 420.64
+margin_top = 151.368
+margin_right = 580.64
+margin_bottom = 189.368
+mouse_default_cursor_shape = 2
+theme = SubResource( 4 )
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 0, 0.607843, 0.6, 1 )
+custom_colors/font_color_pressed = Color( 0, 0.607843, 0.6, 1 )
+action_mode = 0
+text = "Aggiungere voce"
+icon = ExtResource( 11 )
+align = 2
+
+[node name="RemoveVoiceButton" type="Button" parent="PopupAddPartecipant/PanelAddPartecipant"]
+visible = false
+margin_left = 420.64
+margin_top = 200.131
+margin_right = 580.64
+margin_bottom = 238.131
+mouse_default_cursor_shape = 2
+theme = SubResource( 4 )
+custom_styles/hover = ExtResource( 6 )
+custom_styles/pressed = ExtResource( 6 )
+custom_styles/normal = ExtResource( 7 )
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 0, 0.607843, 0.6, 1 )
+custom_colors/font_color_pressed = Color( 0, 0.607843, 0.6, 1 )
+disabled = true
+action_mode = 0
+text = "Rimuovere voce"
+icon = ExtResource( 11 )
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AddPictureButton" type="Button" parent="PopupAddPartecipant/PanelAddPartecipant"]
+margin_left = 244.919
+margin_top = 151.0
+margin_right = 404.919
+margin_bottom = 189.0
+mouse_default_cursor_shape = 2
+theme = SubResource( 4 )
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 0, 0.607843, 0.6, 1 )
+custom_colors/font_color_pressed = Color( 0, 0.607843, 0.6, 1 )
+action_mode = 0
+text = "Aggiungere foto"
+icon = ExtResource( 12 )
+align = 2
+
+[node name="RemovePictureButton" type="Button" parent="PopupAddPartecipant/PanelAddPartecipant"]
+visible = false
+margin_left = 244.919
+margin_top = 200.131
+margin_right = 404.919
+margin_bottom = 238.131
+mouse_default_cursor_shape = 2
+theme = SubResource( 4 )
+custom_styles/hover = ExtResource( 6 )
+custom_styles/pressed = ExtResource( 6 )
+custom_styles/normal = ExtResource( 7 )
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 0, 0.607843, 0.6, 1 )
+custom_colors/font_color_pressed = Color( 0, 0.607843, 0.6, 1 )
+disabled = true
+action_mode = 0
+text = "Rimuovere foto"
+icon = ExtResource( 12 )
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FileLoader" type="FileDialog" parent="PopupAddPartecipant/PanelAddPartecipant"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -475.0
+margin_top = -277.478
+margin_right = 475.0
+margin_bottom = 279.522
+popup_exclusive = true
+window_title = "Open a File"
+dialog_hide_on_ok = true
+mode = 0
+access = 2
+current_dir = "/home/carlos/Documents/Godot/Teams Random Picker"
+current_path = "/home/carlos/Documents/Godot/Teams Random Picker/"
+
+[node name="PopupModifyPartecipant" type="Popup" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -352.0
+margin_top = -170.5
+margin_right = 352.0
+margin_bottom = 170.5
+popup_exclusive = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="PanelModifyPartecipant" type="Panel" parent="PopupModifyPartecipant"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -343.883
+margin_top = -151.285
+margin_right = 337.121
+margin_bottom = 154.715
+script = ExtResource( 13 )
+
+[node name="PlayPauseButton" type="TextureButton" parent="PopupModifyPartecipant/PanelModifyPartecipant"]
+margin_left = 587.209
+margin_top = 153.324
+margin_right = 625.209
+margin_bottom = 188.324
+
+[node name="ModifyPartecipantAudioStream" type="AudioStreamPlayer" parent="PopupModifyPartecipant/PanelModifyPartecipant"]
+
+[node name="LabelModifyPartecipant" type="Label" parent="PopupModifyPartecipant/PanelModifyPartecipant"]
+margin_left = 28.5273
+margin_top = 22.8206
+margin_right = 391.527
+margin_bottom = 42.821
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0, 0.764706, 0.752941, 1 )
+text = "Modifica partecipante"
+uppercase = true
+
+[node name="ModifyPartecipantFormButtons" type="HBoxContainer" parent="PopupModifyPartecipant/PanelModifyPartecipant"]
+margin_left = 218.644
+margin_top = 256.892
+margin_right = 667.644
+margin_bottom = 294.892
+alignment = 2
+
+[node name="ConfirmPartecipantButton" type="Button" parent="PopupModifyPartecipant/PanelModifyPartecipant/ModifyPartecipantFormButtons"]
+margin_left = 140.0
+margin_right = 239.0
+margin_bottom = 38.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 0, 0.607843, 0.6, 1 )
+custom_colors/font_color_pressed = Color( 0, 0.607843, 0.6, 1 )
+disabled = true
+text = "Applica"
+icon = ExtResource( 4 )
+align = 2
+
+[node name="ResetPartecipantButton" type="Button" parent="PopupModifyPartecipant/PanelModifyPartecipant/ModifyPartecipantFormButtons"]
+margin_left = 243.0
+margin_right = 354.0
+margin_bottom = 38.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 0, 0.607843, 0.6, 1 )
+custom_colors/font_color_pressed = Color( 0, 0.607843, 0.6, 1 )
+text = "Ripristina"
+icon = ExtResource( 5 )
+align = 2
+
+[node name="CancelPartecipantButton" type="Button" parent="PopupModifyPartecipant/PanelModifyPartecipant/ModifyPartecipantFormButtons"]
+margin_left = 358.0
+margin_right = 449.0
+margin_bottom = 38.0
+custom_styles/hover = ExtResource( 6 )
+custom_styles/pressed = ExtResource( 6 )
+custom_styles/normal = ExtResource( 7 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 0, 0.607843, 0.6, 1 )
+custom_colors/font_color_pressed = Color( 0, 0.607843, 0.6, 1 )
+text = "Annulla"
+icon = ExtResource( 8 )
+align = 2
+
+[node name="PartecipantPictureDisplay" type="TextureRect" parent="PopupModifyPartecipant/PanelModifyPartecipant"]
+margin_left = 31.6442
+margin_top = 50.892
+margin_right = 220.644
+margin_bottom = 228.892
+texture = ExtResource( 9 )
+expand = true
+stretch_mode = 7
+
+[node name="Node" type="Node" parent="PopupModifyPartecipant/PanelModifyPartecipant/PartecipantPictureDisplay"]
+
+[node name="NameInput" type="LineEdit" parent="PopupModifyPartecipant/PanelModifyPartecipant"]
+margin_left = 252.585
+margin_top = 108.474
+margin_right = 605.585
+margin_bottom = 138.474
+rect_pivot_offset = Vector2( 287, 105 )
+custom_styles/focus = SubResource( 2 )
+custom_styles/normal = SubResource( 3 )
+custom_fonts/font = ExtResource( 10 )
+custom_colors/selection_color = Color( 0, 0.764706, 0.752941, 1 )
+custom_colors/cursor_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_selected = Color( 0, 0.603922, 0.6, 1 )
+caret_blink = true
+
+[node name="LabelAddName" type="Label" parent="PopupModifyPartecipant/PanelModifyPartecipant/NameInput"]
+margin_left = -22.5985
+margin_top = -16.1045
+margin_right = 340.401
+margin_bottom = 3.89551
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0, 0.764706, 0.752941, 1 )
+text = "Nome dal partecipante"
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="ModifyVoiceButton" type="Button" parent="PopupModifyPartecipant/PanelModifyPartecipant"]
+margin_left = 420.64
+margin_top = 151.368
+margin_right = 580.64
+margin_bottom = 189.368
+mouse_default_cursor_shape = 2
+theme = SubResource( 4 )
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 0, 0.607843, 0.6, 1 )
+custom_colors/font_color_pressed = Color( 0, 0.607843, 0.6, 1 )
+action_mode = 0
+text = "Aggiungere voce"
+icon = ExtResource( 11 )
+align = 2
+
+[node name="RemoveVoiceButton" type="Button" parent="PopupModifyPartecipant/PanelModifyPartecipant"]
+visible = false
+margin_left = 424.878
+margin_top = 200.131
+margin_right = 584.878
+margin_bottom = 238.131
+mouse_default_cursor_shape = 2
+theme = SubResource( 4 )
+custom_styles/hover = ExtResource( 6 )
+custom_styles/pressed = ExtResource( 6 )
+custom_styles/normal = ExtResource( 7 )
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 0, 0.607843, 0.6, 1 )
+custom_colors/font_color_pressed = Color( 0, 0.607843, 0.6, 1 )
+disabled = true
+action_mode = 0
+text = "Rimuovere voce"
+icon = ExtResource( 11 )
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ModifyPictureButton" type="Button" parent="PopupModifyPartecipant/PanelModifyPartecipant"]
+margin_left = 244.919
+margin_top = 151.0
+margin_right = 404.919
+margin_bottom = 189.0
+mouse_default_cursor_shape = 2
+theme = SubResource( 4 )
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 0, 0.607843, 0.6, 1 )
+custom_colors/font_color_pressed = Color( 0, 0.607843, 0.6, 1 )
+action_mode = 0
+text = "Aggiungere foto"
+icon = ExtResource( 12 )
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RemovePictureButton" type="Button" parent="PopupModifyPartecipant/PanelModifyPartecipant"]
+visible = false
+margin_left = 249.157
+margin_top = 200.131
+margin_right = 409.157
+margin_bottom = 238.131
+mouse_default_cursor_shape = 2
+theme = SubResource( 4 )
+custom_styles/hover = ExtResource( 6 )
+custom_styles/pressed = ExtResource( 6 )
+custom_styles/normal = ExtResource( 7 )
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 0, 0.607843, 0.6, 1 )
+custom_colors/font_color_pressed = Color( 0, 0.607843, 0.6, 1 )
+disabled = true
+action_mode = 0
+text = "Rimuovere foto"
+icon = ExtResource( 12 )
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FileLoader" type="FileDialog" parent="PopupModifyPartecipant/PanelModifyPartecipant"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -475.0
+margin_top = -277.478
+margin_right = 475.0
+margin_bottom = 279.522
+popup_exclusive = true
+window_title = "Open a File"
+dialog_hide_on_ok = true
+mode = 0
+access = 2
+current_dir = "/home/carlos/Documents/Godot/Teams Random Picker"
+current_path = "/home/carlos/Documents/Godot/Teams Random Picker/"
+
+[node name="PartecipantsList" type="ItemList" parent="."]
+margin_left = 29.0
+margin_top = 93.0
+margin_right = 613.0
+margin_bottom = 592.0
+custom_fonts/font = ExtResource( 10 )
+custom_constants/vseparation = 0
+custom_constants/line_separation = 0
+custom_constants/icon_margin = 20
+custom_constants/hseparation = 0
+allow_reselect = true
+fixed_icon_size = Vector2( 60, 60 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AddNewPartecipantButton" type="Button" parent="."]
+margin_left = 972.225
+margin_top = 27.5488
+margin_right = 1237.23
+margin_bottom = 65.5488
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 0, 0.607843, 0.6, 1 )
+custom_colors/font_color_pressed = Color( 0, 0.607843, 0.6, 1 )
+text = "Nuovo Partecipante"
+icon = ExtResource( 14 )
+align = 2
+
+[node name="EditPartecipantButton" type="Button" parent="."]
+margin_left = 635.826
+margin_top = 553.084
+margin_right = 900.831
+margin_bottom = 591.084
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 0, 0.607843, 0.6, 1 )
+custom_colors/font_color_pressed = Color( 0, 0.607843, 0.6, 1 )
+text = "Modifica Partecipante"
+icon = ExtResource( 15 )
+align = 2
+
+[node name="DeletePartecipantButton" type="Button" parent="."]
+margin_left = 981.625
+margin_top = 552.46
+margin_right = 1246.62
+margin_bottom = 590.46
+custom_styles/hover = ExtResource( 6 )
+custom_styles/normal = ExtResource( 7 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 0, 0.607843, 0.6, 1 )
+custom_colors/font_color_pressed = Color( 0, 0.607843, 0.6, 1 )
+text = "Rimuovere Partecipante"
+icon = ExtResource( 8 )
+align = 2
+
+[node name="GoBackButton" type="Button" parent="."]
+margin_left = 34.0
+margin_top = 639.0
+margin_right = 154.0
+margin_bottom = 677.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 0, 0.607843, 0.6, 1 )
+custom_colors/font_color_pressed = Color( 0, 0.607843, 0.6, 1 )
+text = "Indietro"
+icon = ExtResource( 16 )
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_left = 27.2075
+margin_top = 17.1837
+margin_right = 909.208
+margin_bottom = 82.1837
+custom_fonts/font = ExtResource( 17 )
+text = "Elenco dei Partecipanti "
+valign = 1
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ShowPartecipantContainer" parent="." instance=ExtResource( 18 )]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="."]
+show_behind_parent = true
+margin_left = -13.0
+margin_top = -12.0
+margin_right = 1294.0
+margin_bottom = 733.0
+mouse_filter = 2
+color = Color( 0.0470588, 0.0117647, 0.0705882, 1 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="PopupAddPartecipant/PanelAddPartecipant/PlayPauseButton" to="PopupAddPartecipant/PanelAddPartecipant" method="_on_PlayPauseButton_pressed"]
+[connection signal="finished" from="PopupAddPartecipant/PanelAddPartecipant/AddPartecipantAudioStream" to="PopupAddPartecipant/PanelAddPartecipant" method="_on_AudioStreamPlayer_finished"]
+[connection signal="pressed" from="PopupAddPartecipant/PanelAddPartecipant/AddPartecipantFormButtons/ConfirmPartecipantButton" to="PopupAddPartecipant/PanelAddPartecipant" method="_on_ConfirmPartecipantButton_pressed"]
+[connection signal="pressed" from="PopupAddPartecipant/PanelAddPartecipant/AddPartecipantFormButtons/ResetPartecipantButton" to="PopupAddPartecipant/PanelAddPartecipant" method="_on_ResetPartecipantButton_pressed"]
+[connection signal="pressed" from="PopupAddPartecipant/PanelAddPartecipant/AddPartecipantFormButtons/CancelPartecipantButton" to="PopupAddPartecipant/PanelAddPartecipant" method="_on_CancelPartecipantButton_pressed"]
+[connection signal="text_changed" from="PopupAddPartecipant/PanelAddPartecipant/NameInput" to="PopupAddPartecipant/PanelAddPartecipant" method="_on_NameInput_text_changed"]
+[connection signal="pressed" from="PopupAddPartecipant/PanelAddPartecipant/AddVoiceButton" to="PopupAddPartecipant/PanelAddPartecipant" method="_on_AddVoiceButton_pressed"]
+[connection signal="pressed" from="PopupAddPartecipant/PanelAddPartecipant/RemoveVoiceButton" to="PopupAddPartecipant/PanelAddPartecipant" method="_on_RemoveVoiceButton_pressed"]
+[connection signal="pressed" from="PopupAddPartecipant/PanelAddPartecipant/AddPictureButton" to="PopupAddPartecipant/PanelAddPartecipant" method="_on_AddPictureButton_pressed"]
+[connection signal="pressed" from="PopupAddPartecipant/PanelAddPartecipant/RemovePictureButton" to="PopupAddPartecipant/PanelAddPartecipant" method="_on_RemovePictureButton_pressed"]
+[connection signal="file_selected" from="PopupAddPartecipant/PanelAddPartecipant/FileLoader" to="PopupAddPartecipant/PanelAddPartecipant" method="_on_FileLoader_file_selected"]
+[connection signal="about_to_show" from="PopupModifyPartecipant" to="PopupModifyPartecipant/PanelModifyPartecipant" method="_on_PopupModifyPartecipant_about_to_show"]
+[connection signal="pressed" from="PopupModifyPartecipant/PanelModifyPartecipant/PlayPauseButton" to="PopupModifyPartecipant/PanelModifyPartecipant" method="_on_PlayPauseButton_pressed"]
+[connection signal="finished" from="PopupModifyPartecipant/PanelModifyPartecipant/ModifyPartecipantAudioStream" to="PopupModifyPartecipant/PanelModifyPartecipant" method="_on_AudioStreamPlayer_finished"]
+[connection signal="pressed" from="PopupModifyPartecipant/PanelModifyPartecipant/ModifyPartecipantFormButtons/ConfirmPartecipantButton" to="PopupModifyPartecipant/PanelModifyPartecipant" method="_on_ConfirmPartecipantButton_pressed"]
+[connection signal="pressed" from="PopupModifyPartecipant/PanelModifyPartecipant/ModifyPartecipantFormButtons/ResetPartecipantButton" to="PopupModifyPartecipant/PanelModifyPartecipant" method="_on_ResetPartecipantButton_pressed"]
+[connection signal="pressed" from="PopupModifyPartecipant/PanelModifyPartecipant/ModifyPartecipantFormButtons/CancelPartecipantButton" to="PopupModifyPartecipant/PanelModifyPartecipant" method="_on_CancelPartecipantButton_pressed"]
+[connection signal="text_changed" from="PopupModifyPartecipant/PanelModifyPartecipant/NameInput" to="PopupModifyPartecipant/PanelModifyPartecipant" method="_on_NameInput_text_changed"]
+[connection signal="pressed" from="PopupModifyPartecipant/PanelModifyPartecipant/ModifyVoiceButton" to="PopupModifyPartecipant/PanelModifyPartecipant" method="_on_ModifyVoiceButton_pressed"]
+[connection signal="pressed" from="PopupModifyPartecipant/PanelModifyPartecipant/RemoveVoiceButton" to="PopupModifyPartecipant/PanelModifyPartecipant" method="_on_RemoveVoiceButton_pressed"]
+[connection signal="pressed" from="PopupModifyPartecipant/PanelModifyPartecipant/ModifyPictureButton" to="PopupModifyPartecipant/PanelModifyPartecipant" method="_on_ModifyPictureButton_pressed"]
+[connection signal="pressed" from="PopupModifyPartecipant/PanelModifyPartecipant/RemovePictureButton" to="PopupModifyPartecipant/PanelModifyPartecipant" method="_on_RemovePictureButton_pressed"]
+[connection signal="file_selected" from="PopupModifyPartecipant/PanelModifyPartecipant/FileLoader" to="PopupModifyPartecipant/PanelModifyPartecipant" method="_on_FileLoader_file_selected"]
+[connection signal="item_selected" from="PartecipantsList" to="." method="_on_PartecipantsList_item_selected"]
+[connection signal="pressed" from="AddNewPartecipantButton" to="." method="_on_AddNewPartecipantButton_pressed"]
+[connection signal="pressed" from="EditPartecipantButton" to="." method="_on_EditPartecipantButton_pressed"]
+[connection signal="pressed" from="DeletePartecipantButton" to="." method="_on_DeletePartecipantButton_pressed"]
+[connection signal="pressed" from="GoBackButton" to="." method="_on_GoBackButton_pressed"]
+[connection signal="finished" from="ShowPartecipantContainer/ShowPartecipantAudioStream" to="." method="_on_ShowPartecipantAudioStream_finished"]
+[connection signal="pressed" from="ShowPartecipantContainer/ShowPartecipantPlayPauseButton" to="." method="_on_ShowPartecipantPlayPauseButton_pressed"]
+[connection signal="toggled" from="ShowPartecipantContainer/PartecipantActiveCheckbox" to="." method="_on_PartecipantActiveCheckbox_toggled"]
+
+[editable path="ShowPartecipantContainer"]

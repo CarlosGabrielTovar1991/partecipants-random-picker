@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/goaheadplease.ogg-4fbc42ec02c32fab9e43f4268166a883.oggstr"
+
+[deps]
+
+source_file="res://Assets/Sounds/goaheadplease.ogg"
+dest_files=[ "res://.import/goaheadplease.ogg-4fbc42ec02c32fab9e43f4268166a883.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

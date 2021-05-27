@@ -1,0 +1,47 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[  ]
+_global_script_class_icons={
+
+}
+
+[application]
+
+config/name="Teams Partecipants Random Picker"
+run/main_scene="res://Scenes/Menu/Menu.tscn"
+config/use_custom_user_dir=true
+config/custom_user_dir_name="TeamsPartecipantsRandomPicker"
+boot_splash/image="res://icon.png"
+boot_splash/fullsize=false
+boot_splash/bg_color=Color( 0.447059, 0.447059, 0.447059, 1 )
+config/icon="res://icon.png"
+
+[display]
+
+window/size/width=1280
+window/size/height=720
+window/size/resizable=false
+window/size/fullscreen=true
+window/stretch/mode="2d"
+window/stretch/aspect="expand"
+
+[locale]
+
+test="it_IT"
+fallback="it_IT"
+
+[physics]
+
+2d/default_gravity=100
+
+[rendering]
+
+environment/default_environment="res://default_env.tres"

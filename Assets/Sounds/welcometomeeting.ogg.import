@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/welcometomeeting.ogg-96a9fa11680fb0b2586a84537a012f64.oggstr"
+
+[deps]
+
+source_file="res://Assets/Sounds/welcometomeeting.ogg"
+dest_files=[ "res://.import/welcometomeeting.ogg-96a9fa11680fb0b2586a84537a012f64.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

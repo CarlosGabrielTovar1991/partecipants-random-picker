@@ -1,0 +1,272 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://Scenes/Meeting/Meeting.gd" type="Script" id=1]
+[ext_resource path="res://Resources/df_CartoonCookies_mainlabel.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Resources/df_CartoonCookies.tres" type="DynamicFont" id=3]
+[ext_resource path="res://Assets/Sounds/firstpartecipant.ogg" type="AudioStream" id=4]
+[ext_resource path="res://Assets/Sounds/welcometomeeting.ogg" type="AudioStream" id=5]
+[ext_resource path="res://Assets/Sounds/goaheadplease.ogg" type="AudioStream" id=6]
+[ext_resource path="res://Scenes/Partecipants/ShowPartecipantContainer.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Assets/Sounds/partecipantchoosed.ogg" type="AudioStream" id=8]
+[ext_resource path="res://Resources/df_CartoonCookies_label.tres" type="DynamicFont" id=9]
+[ext_resource path="res://Scenes/Gadgets/LightBulb.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Resources/df_CartoonCookies_textboxes.tres" type="DynamicFont" id=11]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 23.3239, 10 )
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 29.48
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_horizontal_guides_": [ 629.976 ],
+"_edit_lock_": true,
+"_edit_vertical_guides_": [ 639.949 ]
+}
+
+[node name="QuickAddPartecipant" type="PopupDialog" parent="."]
+margin_left = 304.0
+margin_top = 18.2666
+margin_right = 981.0
+margin_bottom = 705.267
+popup_exclusive = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PartecipantsList" type="ItemList" parent="QuickAddPartecipant"]
+margin_left = 46.0
+margin_top = 92.0294
+margin_right = 630.0
+margin_bottom = 635.029
+custom_fonts/font = ExtResource( 11 )
+custom_constants/vseparation = 0
+custom_constants/line_separation = 0
+custom_constants/icon_margin = 20
+custom_constants/hseparation = 0
+allow_reselect = true
+fixed_icon_size = Vector2( 60, 60 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="QuickAddPartecipant"]
+margin_left = 20.1716
+margin_top = 25.3137
+margin_right = 653.172
+margin_bottom = 90.3137
+custom_fonts/font = ExtResource( 2 )
+text = "Scegli un partecipante"
+align = 1
+valign = 1
+uppercase = true
+
+[node name="CancelQuickAdd" type="Button" parent="QuickAddPartecipant"]
+margin_left = 274.792
+margin_top = 646.82
+margin_right = 398.792
+margin_bottom = 670.82
+mouse_default_cursor_shape = 2
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color_disabled = Color( 0.301961, 0.301961, 0.301961, 1 )
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0.427451, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0.427451, 0, 0, 1 )
+text = "Chiudi"
+flat = true
+
+[node name="CallNextOneButton" type="Button" parent="."]
+margin_left = 439.794
+margin_top = 602.718
+margin_right = 838.794
+margin_bottom = 658.718
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+mouse_default_cursor_shape = 2
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color_disabled = Color( 0.301961, 0.301961, 0.301961, 1 )
+custom_colors/font_color = Color( 0.172549, 1, 0, 1 )
+custom_colors/font_color_hover = Color( 0.0156863, 0.411765, 0.0784314, 1 )
+custom_colors/font_color_pressed = Color( 0.0156863, 0.411765, 0.0784314, 1 )
+enabled_focus_mode = 0
+text = "AVANTI IL PRIMO!"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SkipPartecipantButton" type="Button" parent="."]
+margin_left = 422.782
+margin_top = 652.164
+margin_right = 860.782
+margin_bottom = 708.164
+grow_horizontal = 2
+grow_vertical = 2
+mouse_default_cursor_shape = 2
+custom_fonts/font = ExtResource( 9 )
+custom_colors/font_color_disabled = Color( 0.301961, 0.301961, 0.301961, 1 )
+custom_colors/font_color = Color( 1, 0.631373, 0, 1 )
+custom_colors/font_color_hover = Color( 0.717647, 0.388235, 0, 1 )
+custom_colors/font_color_pressed = Color( 0.717647, 0.388235, 0, 1 )
+disabled = true
+enabled_focus_mode = 0
+text = "SALTA QUESTO PARTECIPANTE"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CancelMeetingButton" type="Button" parent="."]
+margin_left = 1146.31
+margin_top = 689.663
+margin_right = 1270.31
+margin_bottom = 713.663
+focus_mode = 0
+mouse_default_cursor_shape = 2
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color_disabled = Color( 0.301961, 0.301961, 0.301961, 1 )
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0.427451, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0.427451, 0, 0, 1 )
+enabled_focus_mode = 0
+text = "Chiudere meeting"
+flat = true
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="QuickAddButton" type="Button" parent="."]
+margin_left = 1087.0
+margin_top = 663.0
+margin_right = 1271.0
+margin_bottom = 687.0
+focus_mode = 0
+mouse_default_cursor_shape = 2
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color_disabled = Color( 0.301961, 0.301961, 0.301961, 1 )
+custom_colors/font_color = Color( 0, 0.529412, 1, 1 )
+custom_colors/font_color_hover = Color( 0.0705882, 0.0470588, 0.466667, 1 )
+custom_colors/font_color_pressed = Color( 0.0705882, 0.0470588, 0.466667, 1 )
+enabled_focus_mode = 0
+text = "Includere un partecipante"
+flat = true
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SelectingMusicStream" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+
+[node name="WelcomeMusicStream" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+autoplay = true
+
+[node name="PartecipantNameAudioStream" type="AudioStreamPlayer" parent="."]
+
+[node name="SelectedMusicStream" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+
+[node name="YouAreTheChoosedOne" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+
+[node name="ShowPartecipantContainer" parent="." instance=ExtResource( 7 )]
+margin_left = 229.944
+margin_top = 32.3446
+margin_right = 869.942
+margin_bottom = 467.345
+rect_scale = Vector2( 1.28, 1.28 )
+mouse_filter = 2
+
+[node name="LabelShowPartecipant" parent="ShowPartecipantContainer" index="0"]
+margin_left = -302.483
+margin_top = -68.5809
+margin_right = 304.517
+margin_bottom = -29.5809
+text = "Tutti pronti per iniziare?"
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2( 640.221, 505.366 )
+scale = Vector2( 28.24, 1.48 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 0.0393925, 0.323563 )
+z_as_relative = false
+shape = SubResource( 1 )
+
+[node name="GetOutCardStaticBody" type="StaticBody2D" parent="."]
+position = Vector2( 220, 629.976 )
+scale = Vector2( 0.187074, 0.175418 )
+z_as_relative = false
+collision_layer = 32
+collision_mask = 32
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GetOutCardStaticBody"]
+position = Vector2( 6.83881, 6.79822 )
+z_as_relative = false
+shape = SubResource( 2 )
+
+[node name="GetOutCardStaticBody2" type="StaticBody2D" parent="."]
+position = Vector2( 1050, 629.976 )
+scale = Vector2( 0.187074, 0.175418 )
+z_as_relative = false
+collision_layer = 32
+collision_mask = 32
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GetOutCardStaticBody2"]
+position = Vector2( 6.83881, 6.79822 )
+z_as_relative = false
+shape = SubResource( 2 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.055
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+autoplay = true
+
+[node name="LightBulbsRing" parent="." instance=ExtResource( 10 )]
+position = Vector2( 640.486, 251.189 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+show_behind_parent = true
+margin_left = -13.0
+margin_top = -12.0
+margin_right = 1294.0
+margin_bottom = 733.0
+mouse_filter = 2
+color = Color( 0, 0.027451, 0.121569, 1 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+[connection signal="item_selected" from="QuickAddPartecipant/PartecipantsList" to="." method="_on_PartecipantsList_item_selected"]
+[connection signal="pressed" from="QuickAddPartecipant/CancelQuickAdd" to="." method="_on_CancelQuickAdd_pressed"]
+[connection signal="pressed" from="CallNextOneButton" to="." method="_on_CallNextOneButton_pressed"]
+[connection signal="pressed" from="SkipPartecipantButton" to="." method="_on_CallNextOneButton_pressed" binds= [ true ]]
+[connection signal="pressed" from="CancelMeetingButton" to="." method="_on_CancelMeetingButton_pressed"]
+[connection signal="pressed" from="QuickAddButton" to="." method="_on_QuickAddButton_pressed"]
+[connection signal="finished" from="SelectingMusicStream" to="." method="_on_SelectingMusicStream_finished"]
+[connection signal="finished" from="WelcomeMusicStream" to="." method="_on_WelcomeMusicStream_finished"]
+[connection signal="finished" from="PartecipantNameAudioStream" to="." method="_on_PartecipantNameAudioStream_finished"]
+[connection signal="finished" from="SelectedMusicStream" to="." method="_on_SelectedMusicStream_finished"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+
+[editable path="ShowPartecipantContainer"]

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/meetingends.ogg-b10c85ca5baf2d3bbcaaeae08767a44d.oggstr"
+
+[deps]
+
+source_file="res://Assets/Sounds/meetingends.ogg"
+dest_files=[ "res://.import/meetingends.ogg-b10c85ca5baf2d3bbcaaeae08767a44d.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

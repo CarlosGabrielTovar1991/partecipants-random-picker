@@ -1,0 +1,196 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Assets/Images/lightBulb_frames/LightBulbOff.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Images/lightBulb_frames/LightBulbOn25.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Images/lightBulb_frames/LightBulbOn50.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Images/lightBulb_frames/LightBulbOn100.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Images/lightBulb_frames/LightBulbOn75.png" type="Texture" id=6]
+[ext_resource path="res://Scenes/Gadgets/LightBulb.gd" type="Script" id=7]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 5 ) ],
+"loop": false,
+"name": "on",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ) ],
+"loop": false,
+"name": "off",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 6 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "flash",
+"speed": 20.0
+}, {
+"frames": [ ExtResource( 5 ), ExtResource( 6 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 2 ) ],
+"loop": false,
+"name": "turnOff",
+"speed": 20.0
+}, {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 6 ), ExtResource( 5 ) ],
+"loop": false,
+"name": "turnOn",
+"speed": 20.0
+} ]
+
+[node name="LightBulbRing" type="Node2D"]
+position = Vector2( 650, 250 )
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_horizontal_guides_": [ 485.642, 8.76989, 250.179 ],
+"_edit_vertical_guides_": [ 649.716, 407.118, 887.558 ]
+}
+
+[node name="LightBulb1" type="AnimatedSprite" parent="."]
+position = Vector2( -2.99365, -222.732 )
+scale = Vector2( 0.0839476, 0.0839476 )
+frames = SubResource( 1 )
+animation = "off"
+playing = true
+
+[node name="LightBulb2" type="AnimatedSprite" parent="."]
+position = Vector2( 68.6436, -214.019 )
+scale = Vector2( 0.0839476, 0.0839476 )
+frames = SubResource( 1 )
+animation = "off"
+playing = true
+
+[node name="LightBulb3" type="AnimatedSprite" parent="."]
+position = Vector2( 124.5, -182.791 )
+scale = Vector2( 0.0839476, 0.0839476 )
+frames = SubResource( 1 )
+animation = "off"
+playing = true
+
+[node name="LightBulb4" type="AnimatedSprite" parent="."]
+position = Vector2( 177.656, -137.037 )
+scale = Vector2( 0.0839476, 0.0839476 )
+frames = SubResource( 1 )
+animation = "off"
+playing = true
+
+[node name="LightBulb5" type="AnimatedSprite" parent="."]
+position = Vector2( 208.029, -75.5015 )
+scale = Vector2( 0.0839476, 0.0839476 )
+frames = SubResource( 1 )
+animation = "off"
+playing = true
+
+[node name="LightBulb6" type="AnimatedSprite" parent="."]
+position = Vector2( 219.521, -3.33008 )
+scale = Vector2( 0.0839476, 0.0839476 )
+frames = SubResource( 1 )
+animation = "off"
+playing = true
+
+[node name="LightBulb7" type="AnimatedSprite" parent="."]
+position = Vector2( 208.818, 68.0222 )
+scale = Vector2( 0.0839476, 0.0839476 )
+frames = SubResource( 1 )
+animation = "off"
+playing = true
+
+[node name="LightBulb8" type="AnimatedSprite" parent="."]
+position = Vector2( 186.223, 131.05 )
+scale = Vector2( 0.0839476, 0.0839476 )
+frames = SubResource( 1 )
+animation = "off"
+playing = true
+
+[node name="LightBulb9" type="AnimatedSprite" parent="."]
+position = Vector2( 133.898, 177.429 )
+scale = Vector2( 0.0839476, 0.0839476 )
+frames = SubResource( 1 )
+animation = "off"
+playing = true
+
+[node name="LightBulb10" type="AnimatedSprite" parent="."]
+position = Vector2( 70.8701, 209.538 )
+scale = Vector2( 0.0839476, 0.0839476 )
+frames = SubResource( 1 )
+animation = "off"
+playing = true
+
+[node name="LightBulb11" type="AnimatedSprite" parent="."]
+position = Vector2( -0.481934, 216.673 )
+scale = Vector2( 0.0839476, 0.0839476 )
+frames = SubResource( 1 )
+animation = "off"
+playing = true
+
+[node name="LightBulb12" type="AnimatedSprite" parent="."]
+position = Vector2( -69.4565, 209.538 )
+scale = Vector2( 0.0839476, 0.0839476 )
+frames = SubResource( 1 )
+animation = "off"
+playing = true
+
+[node name="LightBulb13" type="AnimatedSprite" parent="."]
+position = Vector2( -128.917, 179.808 )
+scale = Vector2( 0.0839476, 0.0839476 )
+frames = SubResource( 1 )
+animation = "off"
+playing = true
+
+[node name="LightBulb14" type="AnimatedSprite" parent="."]
+position = Vector2( -176.485, 134.618 )
+scale = Vector2( 0.0839476, 0.0839476 )
+frames = SubResource( 1 )
+animation = "off"
+playing = true
+
+[node name="LightBulb15" type="AnimatedSprite" parent="."]
+position = Vector2( -210.906, 80.248 )
+scale = Vector2( 0.0839476, 0.0839476 )
+frames = SubResource( 1 )
+animation = "off"
+playing = true
+
+[node name="LightBulb16" type="AnimatedSprite" parent="."]
+position = Vector2( -224.053, 12.1294 )
+scale = Vector2( 0.0839476, 0.0839476 )
+frames = SubResource( 1 )
+animation = "off"
+playing = true
+
+[node name="LightBulb17" type="AnimatedSprite" parent="."]
+position = Vector2( -215.729, -56.8445 )
+scale = Vector2( 0.0839476, 0.0839476 )
+frames = SubResource( 1 )
+animation = "off"
+playing = true
+
+[node name="LightBulb18" type="AnimatedSprite" parent="."]
+position = Vector2( -190.756, -124.629 )
+scale = Vector2( 0.0839476, 0.0839476 )
+frames = SubResource( 1 )
+animation = "off"
+playing = true
+
+[node name="LightBulb19" type="AnimatedSprite" parent="."]
+position = Vector2( -138.43, -178.144 )
+scale = Vector2( 0.0839476, 0.0839476 )
+frames = SubResource( 1 )
+animation = "off"
+playing = true
+
+[node name="LightBulb20" type="AnimatedSprite" parent="."]
+position = Vector2( -73.0239, -213.82 )
+scale = Vector2( 0.0839476, 0.0839476 )
+frames = SubResource( 1 )
+animation = "off"
+playing = true
+
+[node name="ringSwitchTimer" type="Timer" parent="."]
+wait_time = 0.001
+
+[node name="intermitentSwitchTimer" type="Timer" parent="."]
+wait_time = 0.5
+
+[node name="loopSwitchTimer" type="Timer" parent="."]
+wait_time = 0.5
+[connection signal="timeout" from="ringSwitchTimer" to="." method="_on_ringSwitchTimer_timeout"]
+[connection signal="timeout" from="intermitentSwitchTimer" to="." method="_on_intermitentSwitchTimer_timeout"]
+[connection signal="timeout" from="loopSwitchTimer" to="." method="_on_loopSwitchTimer_timeout"]
