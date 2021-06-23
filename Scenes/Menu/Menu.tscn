@@ -102,6 +102,7 @@ __meta__ = {
 "_edit_lock_": true,
 "_edit_use_anchors_": false
 }
+
 [connection signal="pressed" from="StartMeetingButton" to="." method="_on_StartMeetingButton_pressed"]
 [connection signal="pressed" from="GoToPartecipantsListButton" to="." method="_on_GoToPartecipantsListButton_pressed"]
 [connection signal="pressed" from="ExitButton" to="." method="_on_ExitButton_pressed"]

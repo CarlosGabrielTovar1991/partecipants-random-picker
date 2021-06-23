@@ -38,6 +38,9 @@ margin_bottom = 319.846
 texture = ExtResource( 2 )
 expand = true
 stretch_mode = 7
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Light2D" type="Light2D" parent="ShowPartecipantPicture"]
 position = Vector2( 150.902, 150.451 )
@@ -49,6 +52,7 @@ range_item_cull_mask = 1024
 [node name="ShowPartecipantAudioStream" type="AudioStreamPlayer" parent="."]
 
 [node name="ShowPartecipantPlayPauseButton" type="TextureButton" parent="."]
+visible = false
 margin_left = 394.536
 margin_top = 369.032
 margin_right = 434.536
