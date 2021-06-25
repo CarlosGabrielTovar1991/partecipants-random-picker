@@ -19,9 +19,9 @@ animations = [ {
 "name": "off",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 6 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 2 ) ],
-"loop": true,
-"name": "flash",
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 6 ), ExtResource( 5 ) ],
+"loop": false,
+"name": "turnOn",
 "speed": 20.0
 }, {
 "frames": [ ExtResource( 5 ), ExtResource( 6 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 2 ) ],
@@ -29,9 +29,9 @@ animations = [ {
 "name": "turnOff",
 "speed": 20.0
 }, {
-"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 6 ), ExtResource( 5 ) ],
-"loop": false,
-"name": "turnOn",
+"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 6 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "flash",
 "speed": 20.0
 } ]
 
@@ -184,13 +184,14 @@ animation = "off"
 playing = true
 
 [node name="ringSwitchTimer" type="Timer" parent="."]
-wait_time = 0.001
+wait_time = 0.013
 
 [node name="intermitentSwitchTimer" type="Timer" parent="."]
 wait_time = 0.5
 
 [node name="loopSwitchTimer" type="Timer" parent="."]
 wait_time = 0.5
+
 [connection signal="timeout" from="ringSwitchTimer" to="." method="_on_ringSwitchTimer_timeout"]
 [connection signal="timeout" from="intermitentSwitchTimer" to="." method="_on_intermitentSwitchTimer_timeout"]
 [connection signal="timeout" from="loopSwitchTimer" to="." method="_on_loopSwitchTimer_timeout"]

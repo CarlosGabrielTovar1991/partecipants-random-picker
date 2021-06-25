@@ -5,7 +5,6 @@
 [ext_resource path="res://Assets/Images/CircleMask.png" type="Texture" id=3]
 
 [sub_resource type="PhysicsMaterial" id=1]
-bounce = 0.25
 
 [sub_resource type="CircleShape2D" id=2]
 radius = 21.7574
@@ -14,42 +13,41 @@ radius = 21.7574
 light_mode = 2
 
 [node name="PartecipantBall" type="RigidBody2D"]
-position = Vector2( 28.9137, 26.789 )
+position = Vector2( 39.2715, 41.4951 )
 z_index = 1
 physics_material_override = SubResource( 1 )
-gravity_scale = 40.0
-__meta__ = {
-"_edit_group_": true
-}
+gravity_scale = 30.0
+can_sleep = false
 
-[node name="Light2D" type="Light2D" parent="."]
-position = Vector2( -0.0992012, -0.816484 )
-scale = Vector2( 0.0564668, 0.0565635 )
-z_index = 5
+[node name="CircleCollision" type="CollisionShape2D" parent="."]
+position = Vector2( -0.234871, -0.732002 )
+scale = Vector2( 0.629895, 0.629895 )
+z_index = 1
+shape = SubResource( 2 )
+
+[node name="Light2D" type="Light2D" parent="CircleCollision"]
+position = Vector2( -0.0102959, 0.0282211 )
+scale = Vector2( 0.0504908, 0.0501834 )
+z_index = 3
 z_as_relative = false
 texture = ExtResource( 3 )
 mode = 2
 range_item_cull_mask = 1024
 
-[node name="CircleCollision" type="CollisionShape2D" parent="."]
-position = Vector2( -0.234871, -0.732002 )
+[node name="PartecipantBallSprite" type="Sprite" parent="CircleCollision"]
+position = Vector2( 0.242844, -0.0216141 )
+scale = Vector2( 0.21777, 0.21777 )
 z_index = 2
-shape = SubResource( 2 )
-
-[node name="PartecipantBallSprite" type="Sprite" parent="."]
-position = Vector2( -0.125244, -0.74176 )
-scale = Vector2( 0.216759, 0.216759 )
-z_index = 1
 texture = ExtResource( 1 )
 
-[node name="PartecipantPicture" type="TextureRect" parent="."]
+[node name="PartecipantPicture" type="TextureRect" parent="CircleCollision"]
 light_mask = 1024
 material = SubResource( 3 )
-margin_left = -19.9473
-margin_top = -20.5564
-margin_right = 55.0527
-margin_bottom = 54.4436
-rect_scale = Vector2( 0.540099, 0.540099 )
+margin_left = -19.0
+margin_top = -21.0
+margin_right = 167.0
+margin_bottom = 172.0
+rect_scale = Vector2( 0.209685, 0.209685 )
 texture = ExtResource( 2 )
 expand = true
 stretch_mode = 7
