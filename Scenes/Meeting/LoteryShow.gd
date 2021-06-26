@@ -35,7 +35,8 @@ func _ready():
 	$SkipPartecipantButton.visible = false
 	$CallNextOneButton.disabled = true
 	$CallNextOneButton.visible = false
-	$LightBulbsRing.setStatus('loop')
+	$LightBulbs.setStatus('loop')
+	$ShowPartecipantContainerSquare/LabelShowPartecipant.text = "Benvenuti!"
 	var dataFile = File.new()
 	#Load next partecipant Stream
 	nextPartecipantStream = preload("res://Assets/Sounds/nextpartecipant.ogg")
@@ -64,9 +65,9 @@ func _process(_delta):
 func finishMeeting():
 	if (partecipantsIdArray.size() <= 0 && currentPartecipantId != null):
 		currentPartecipantId = null
-		$LightBulbsRing.setStatus('loop')
-		$ShowPartecipantContainer/ShowPartecipantPicture.set_texture(meetingEndsTexture)
-		$ShowPartecipantContainer/LabelShowPartecipant.text = "Meeting concluso!\nGrazie e Buona giornata a tutti!"
+		$LightBulbs.setStatus('loop')
+		$ShowPartecipantContainerSquare/ShowPartecipantPicture.set_texture(meetingEndsTexture)
+		$ShowPartecipantContainerSquare/LabelShowPartecipant.text = "Arrivederci!"
 		$WelcomeMusicStream.stream = meetingEndsStream
 		$WelcomeMusicStream.play()
 		# $BackgroundMusic.stop()
@@ -96,7 +97,7 @@ func insertPartecipantOnCurrentMeet(currentPartecipant, processPartecipantObject
 	partecipantBallInstance.set_collision_layer_bit(10, false)
 	partecipantBallInstance.set_collision_mask_bit(10, false)
 	partecipantBallInstance.set_z_index(1)
-	partecipantBallInstance.position = Vector2(185, -50)
+	partecipantBallInstance.position = Vector2(285, -25)
 	add_child(partecipantBallInstance)
 	partecipantsIdArray.push_back(data_Partecipants[currentPartecipant]._id)
 	if (fromQuick == true && isSelectionOver == true):
@@ -151,7 +152,9 @@ func _on_WelcomeMusicStream_finished():
 func enableStartButton():
 	if (meetWelcomeEnd == true && partecipantsLoaded == true):
 		meetCanStart = true
-		$BallsContainer/TopCover/CollisionArea.disabled = false
+		$BallsContainer/TopCover/CollisionArea1.disabled = false
+		$BallsContainer/TopCover/CollisionArea2.disabled = false
+		$BallsContainer/TopCover/CollisionArea3.disabled = false
 		$CallNextOneButton.disabled = false
 		$CallNextOneButton.visible = true
 		$CancelMeetingButton.disabled = false
@@ -183,7 +186,7 @@ func startPartecipartSelectionProcess():
 	partecipantsWheelId = 0
 	isSelectingNextPartecipant = true
 	isSelectionOver = false
-	$LightBulbsRing.setStatus('ring')
+	$LightBulbs.setStatus('ring')
 	$CallNextOneButton.disabled = true
 	$CallNextOneButton.visible = false
 	$SkipPartecipantButton.disabled = true
@@ -224,11 +227,11 @@ func _on_PartecipantNameAudioStream_finished():
 	$SelectedMusicStream.play()
 
 func displayCurrentPartecipantData(currentPartecipantData):
-	$ShowPartecipantContainer/LabelShowPartecipant.text = currentPartecipantData.name
-	$ShowPartecipantContainer/ShowPartecipantPicture.set_texture(currentPartecipantData.imageTextureData)
+	$ShowPartecipantContainerSquare/LabelShowPartecipant.text = currentPartecipantData.name
+	$ShowPartecipantContainerSquare/ShowPartecipantPicture.set_texture(currentPartecipantData.imageTextureData)
 
 func setCurrentPartecipantData(currentPartecipantData):
-	$LightBulbsRing.setStatus('oddEvenLoop')
+	$LightBulbs.setStatus('oddEvenLoop')
 	displayCurrentPartecipantData(currentPartecipantData)
 	$PartecipantNameAudioStream.stream = currentPartecipantData.audioStreamData
 	$PartecipantNameAudioStream.play()
@@ -278,11 +281,11 @@ func findPartecipantInCurrent(partecipantId):
 	return find
 
 func mapQuickAddPartecipantsList():
-	$QuickAddPartecipant/PartecipantsList.clear()
+	$QuickAddLayer/QuickAddPartecipant/PartecipantsList.clear()
 	for currentPartecipant in partecipantsIdArrayDisplay:
 		if (!findPartecipantInCurrent(currentPartecipant._id)):
-			$QuickAddPartecipant/PartecipantsList.add_item(currentPartecipant.name, currentPartecipant.imageTextureData, true)
-			$QuickAddPartecipant/PartecipantsList.set_item_metadata($QuickAddPartecipant/PartecipantsList.get_item_count() - 1, currentPartecipant)
+			$QuickAddLayer/QuickAddPartecipant/PartecipantsList.add_item(currentPartecipant.name, currentPartecipant.imageTextureData, true)
+			$QuickAddLayer/QuickAddPartecipant/PartecipantsList.set_item_metadata($QuickAddLayer/QuickAddPartecipant/PartecipantsList.get_item_count() - 1, currentPartecipant)
 
 func _on_QuickAddButton_pressed():
 	if (MeetingActive == true):
@@ -290,20 +293,20 @@ func _on_QuickAddButton_pressed():
 		$CancelMeetingButton.disabled = true
 		$QuickAddButton.disabled = true
 		mapQuickAddPartecipantsList()
-		$QuickAddPartecipant.show_modal(true)
+		$QuickAddLayer/QuickAddPartecipant.show_modal(true)
 
 func _on_CancelQuickAdd_pressed():
 	quickAddPartecipantIndex = null
 	$CancelMeetingButton.disabled = false
 	$QuickAddButton.disabled = false
-	$QuickAddPartecipant.hide()
+	$QuickAddLayer/QuickAddPartecipant.hide()
 
 func _on_PartecipantsList_item_selected(index):
 	if (MeetingActive == true):
 		if (quickAddPartecipantIndex == null || index != quickAddPartecipantIndex):
 			quickAddPartecipantIndex = index
 		else:
-			var selectedPartecipantMetaData = $QuickAddPartecipant/PartecipantsList.get_item_metadata(quickAddPartecipantIndex)
+			var selectedPartecipantMetaData = $QuickAddLayer/QuickAddPartecipant/PartecipantsList.get_item_metadata(quickAddPartecipantIndex)
 			insertPartecipantOnCurrentMeet(selectedPartecipantMetaData._id, selectedPartecipantMetaData, selectedPartecipantMetaData.imageTextureData, true)
 			quickAddPartecipantIndex = null
 			mapQuickAddPartecipantsList()

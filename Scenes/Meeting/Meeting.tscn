@@ -9,7 +9,7 @@
 [ext_resource path="res://Scenes/Partecipants/ShowPartecipantContainer.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Assets/Sounds/partecipantchoosed.ogg" type="AudioStream" id=8]
 [ext_resource path="res://Resources/df_CartoonCookies_label.tres" type="DynamicFont" id=9]
-[ext_resource path="res://Scenes/Gadgets/LightBulb.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Scenes/Gadgets/LightBulbRing.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Resources/df_CartoonCookies_textboxes.tres" type="DynamicFont" id=11]
 
 [sub_resource type="RectangleShape2D" id=1]

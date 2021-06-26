@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Assets/Images/GlassRender.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/Meeting/LoteryShow.gd" type="Script" id=2]
@@ -10,8 +10,9 @@
 [ext_resource path="res://Resources/df_CartoonCookies_mainlabel.tres" type="DynamicFont" id=8]
 [ext_resource path="res://Resources/df_CartoonCookies_textboxes.tres" type="DynamicFont" id=9]
 [ext_resource path="res://Resources/df_CartoonCookies.tres" type="DynamicFont" id=10]
-[ext_resource path="res://Scenes/Gadgets/LightBulb.tscn" type="PackedScene" id=11]
-[ext_resource path="res://Scenes/Partecipants/ShowPartecipantContainer.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Scenes/Gadgets/LightBulbSquare.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Assets/Images/ScenarioRender.png" type="Texture" id=13]
+[ext_resource path="res://Scenes/Partecipants/ShowPartecipantContainerSquare.tscn" type="PackedScene" id=14]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 118.532, 18.9038 )
@@ -20,7 +21,7 @@ extents = Vector2( 118.532, 18.9038 )
 extents = Vector2( 63.8957, 9.73877 )
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 126.769, 4.93976 )
+extents = Vector2( 152.738, 4.93976 )
 
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 1.94159, 116.688 )
@@ -40,24 +41,24 @@ extents = Vector2( 5.23749, 174.11 )
 [sub_resource type="RectangleShape2D" id=9]
 extents = Vector2( 1.01425, 57.5557 )
 
-[sub_resource type="RectangleShape2D" id=11]
+[sub_resource type="RectangleShape2D" id=10]
 extents = Vector2( 33.9861, 4.96942 )
 
-[sub_resource type="RectangleShape2D" id=10]
+[sub_resource type="RectangleShape2D" id=11]
 extents = Vector2( 46.03, 10 )
 
 [sub_resource type="RectangleShape2D" id=12]
-extents = Vector2( 124.524, 25.0129 )
+extents = Vector2( 100.384, 25.0129 )
 
 [node name="LoteryShowControl" type="Control"]
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false,
-"_edit_vertical_guides_": [ 184.088 ]
+"_edit_vertical_guides_": [ 284.872 ]
 }
 
 [node name="BallsContainer" type="Node2D" parent="."]
-position = Vector2( 58.7338, 1.5874 )
+position = Vector2( 159.527, 20.4862 )
 scale = Vector2( 0.681412, 0.681412 )
 
 [node name="GlassContainerSprite" type="Sprite" parent="BallsContainer"]
@@ -148,10 +149,6 @@ disabled = true
 position = Vector2( 1.52588e-05, -7.62939e-06 )
 scale = Vector2( 0.814073, 0.814073 )
 z_index = 3
-__meta__ = {
-"_edit_group_": true,
-"_edit_lock_": true
-}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BallsContainer/ContainerLimiterL1"]
 position = Vector2( 226.733, 458.739 )
@@ -208,7 +205,7 @@ rotation = -1.57079
 shape = SubResource( 2 )
 
 [node name="CollisionShape2D13" type="CollisionShape2D" parent="BallsContainer/ContainerLimiterL1"]
-position = Vector2( 320.047, 869.294 )
+position = Vector2( 191.274, 882.171 )
 rotation = -0.136464
 scale = Vector2( 3.64813, 1.96789 )
 shape = SubResource( 3 )
@@ -230,10 +227,6 @@ shape = SubResource( 5 )
 z_index = 3
 collision_layer = 1024
 collision_mask = 1024
-__meta__ = {
-"_edit_group_": true,
-"_edit_lock_": true
-}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BallsContainer/SelectionLimiterL2"]
 position = Vector2( 144.038, 390.236 )
@@ -256,7 +249,7 @@ shape = SubResource( 9 )
 
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="BallsContainer/SelectionLimiterL2"]
 position = Vector2( 525.594, 563.356 )
-shape = SubResource( 11 )
+shape = SubResource( 10 )
 
 [node name="ContainerLimiterL2" type="StaticBody2D" parent="BallsContainer/SelectionLimiterL2"]
 position = Vector2( 1.52588e-05, -7.62939e-06 )
@@ -317,11 +310,11 @@ shape = SubResource( 2 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BallsContainer/SelectionLimiterL2/ContainerLimiterL2"]
 position = Vector2( 201.904, 536.684 )
 rotation = 0.891018
-shape = SubResource( 10 )
+shape = SubResource( 11 )
 
 [node name="CollisionShape2D6" type="CollisionShape2D" parent="BallsContainer/SelectionLimiterL2"]
 position = Vector2( 583.28, 570.486 )
-shape = SubResource( 11 )
+shape = SubResource( 10 )
 
 [node name="TopCover" type="StaticBody2D" parent="BallsContainer"]
 position = Vector2( 1.52588e-05, -7.62939e-06 )
@@ -329,17 +322,27 @@ scale = Vector2( 0.814073, 0.814073 )
 z_index = 3
 collision_layer = 1025
 collision_mask = 1025
-__meta__ = {
-"_edit_group_": true,
-"_edit_lock_": true
-}
 
-[node name="CollisionArea" type="CollisionShape2D" parent="BallsContainer/TopCover"]
-position = Vector2( 224.64, 22.9559 )
+[node name="CollisionArea1" type="CollisionShape2D" parent="BallsContainer/TopCover"]
+position = Vector2( 225.961, -138.475 )
 shape = SubResource( 12 )
 disabled = true
 
-[node name="QuickAddPartecipant" type="PopupDialog" parent="."]
+[node name="CollisionArea2" type="CollisionShape2D" parent="BallsContainer/TopCover"]
+position = Vector2( 174.836, -36.9308 )
+scale = Vector2( 0.172318, 3.38842 )
+shape = SubResource( 12 )
+disabled = true
+
+[node name="CollisionArea3" type="CollisionShape2D" parent="BallsContainer/TopCover"]
+position = Vector2( 282.033, -36.5306 )
+scale = Vector2( 0.172318, 3.38842 )
+shape = SubResource( 12 )
+disabled = true
+
+[node name="QuickAddLayer" type="CanvasLayer" parent="."]
+
+[node name="QuickAddPartecipant" type="PopupDialog" parent="QuickAddLayer"]
 margin_left = 304.0
 margin_top = 18.2666
 margin_right = 981.0
@@ -351,7 +354,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="PartecipantsList" type="ItemList" parent="QuickAddPartecipant"]
+[node name="PartecipantsList" type="ItemList" parent="QuickAddLayer/QuickAddPartecipant"]
 margin_left = 46.0
 margin_top = 92.0294
 margin_right = 630.0
@@ -367,7 +370,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="QuickAddPartecipant"]
+[node name="Label" type="Label" parent="QuickAddLayer/QuickAddPartecipant"]
 margin_left = 20.1716
 margin_top = 25.3137
 margin_right = 653.172
@@ -378,7 +381,7 @@ align = 1
 valign = 1
 uppercase = true
 
-[node name="CancelQuickAdd" type="Button" parent="QuickAddPartecipant"]
+[node name="CancelQuickAdd" type="Button" parent="QuickAddLayer/QuickAddPartecipant"]
 margin_left = 274.792
 margin_top = 646.82
 margin_right = 398.792
@@ -391,6 +394,12 @@ custom_colors/font_color_hover = Color( 0.427451, 0, 0, 1 )
 custom_colors/font_color_pressed = Color( 0.427451, 0, 0, 1 )
 text = "Chiudi"
 flat = true
+
+[node name="ShowPartecipantContainerSquare" parent="." instance=ExtResource( 14 )]
+margin_left = 641.323
+margin_top = 125.296
+margin_right = 1281.32
+margin_bottom = 560.296
 
 [node name="CallNextOneButton" type="Button" parent="."]
 margin_left = 806.07
@@ -497,40 +506,27 @@ stream = ExtResource( 3 )
 [node name="YouAreTheChoosedOne" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )
 
-[node name="ShowPartecipantContainer" parent="." instance=ExtResource( 12 )]
-margin_left = 459.461
-margin_top = 28.777
-margin_right = 1099.46
-margin_bottom = 463.777
-rect_scale = Vector2( 1.28, 1.28 )
-mouse_filter = 2
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+autoplay = true
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.045
 
-[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
-autoplay = true
-
-[node name="LightBulbsRing" parent="." instance=ExtResource( 11 )]
-position = Vector2( 870.003, 247.621 )
-
-[node name="ColorRect" type="ColorRect" parent="."]
-visible = false
-show_behind_parent = true
-margin_left = -13.0
-margin_top = -12.0
-margin_right = 1294.0
-margin_bottom = 733.0
-mouse_filter = 2
-color = Color( 0, 0.027451, 0.121569, 1 )
+[node name="BackgroundImage" type="Sprite" parent="."]
+position = Vector2( 641.859, 360.337 )
+scale = Vector2( 0.680353, 0.680353 )
+z_index = -1
+texture = ExtResource( 13 )
 __meta__ = {
 "_edit_group_": true,
-"_edit_lock_": true,
-"_edit_use_anchors_": false
+"_edit_lock_": true
 }
 
-[connection signal="item_selected" from="QuickAddPartecipant/PartecipantsList" to="." method="_on_PartecipantsList_item_selected"]
-[connection signal="pressed" from="QuickAddPartecipant/CancelQuickAdd" to="." method="_on_CancelQuickAdd_pressed"]
+[node name="LightBulbs" parent="." instance=ExtResource( 11 )]
+position = Vector2( 1033.59, 341.731 )
+
+[connection signal="item_selected" from="QuickAddLayer/QuickAddPartecipant/PartecipantsList" to="." method="_on_PartecipantsList_item_selected"]
+[connection signal="pressed" from="QuickAddLayer/QuickAddPartecipant/CancelQuickAdd" to="." method="_on_CancelQuickAdd_pressed"]
 [connection signal="pressed" from="CallNextOneButton" to="." method="_on_CallNextOneButton_pressed"]
 [connection signal="pressed" from="SkipPartecipantButton" to="." method="_on_CallNextOneButton_pressed" binds= [ true ]]
 [connection signal="pressed" from="CancelMeetingButton" to="." method="_on_CancelMeetingButton_pressed"]
