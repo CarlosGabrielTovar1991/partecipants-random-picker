@@ -250,4 +250,4 @@ func _on_ShowPartecipantPlayPauseButton_pressed():
 		$ShowPartecipantContainer/ShowPartecipantPlayPauseButton.texture_normal = load("res://Assets/Icons/pause.svg")
 
 func _on_GoBackButton_pressed():
-	get_tree().change_scene("res://Scenes/Menu/Menu.tscn")
+	CommonScene.goto_scene("res://Scenes/Menu/Menu.tscn")

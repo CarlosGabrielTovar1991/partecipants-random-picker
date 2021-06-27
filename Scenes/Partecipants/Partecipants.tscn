@@ -270,12 +270,12 @@ margin_top = -277.478
 margin_right = 475.0
 margin_bottom = 279.522
 popup_exclusive = true
-window_title = "Open a File"
+window_title = "Abrir un Archivo"
 dialog_hide_on_ok = true
 mode = 0
 access = 2
-current_dir = "/home/carlos/Documents/Godot/Teams Random Picker"
-current_path = "/home/carlos/Documents/Godot/Teams Random Picker/"
+current_dir = "/home/carlos/Workspace/Personal/cws-partecipants-random-picker"
+current_path = "/home/carlos/Workspace/Personal/cws-partecipants-random-picker/"
 
 [node name="PopupModifyPartecipant" type="Popup" parent="."]
 anchor_left = 0.5
@@ -494,12 +494,12 @@ margin_top = -277.478
 margin_right = 475.0
 margin_bottom = 279.522
 popup_exclusive = true
-window_title = "Open a File"
+window_title = "Abrir un Archivo"
 dialog_hide_on_ok = true
 mode = 0
 access = 2
-current_dir = "/home/carlos/Documents/Godot/Teams Random Picker"
-current_path = "/home/carlos/Documents/Godot/Teams Random Picker/"
+current_dir = "/home/carlos/Workspace/Personal/cws-partecipants-random-picker"
+current_path = "/home/carlos/Workspace/Personal/cws-partecipants-random-picker/"
 
 [node name="PartecipantsList" type="ItemList" parent="."]
 margin_left = 29.0
@@ -598,6 +598,7 @@ __meta__ = {
 "_edit_lock_": true,
 "_edit_use_anchors_": false
 }
+
 [connection signal="pressed" from="PopupAddPartecipant/PanelAddPartecipant/PlayPauseButton" to="PopupAddPartecipant/PanelAddPartecipant" method="_on_PlayPauseButton_pressed"]
 [connection signal="finished" from="PopupAddPartecipant/PanelAddPartecipant/AddPartecipantAudioStream" to="PopupAddPartecipant/PanelAddPartecipant" method="_on_AudioStreamPlayer_finished"]
 [connection signal="pressed" from="PopupAddPartecipant/PanelAddPartecipant/AddPartecipantFormButtons/ConfirmPartecipantButton" to="PopupAddPartecipant/PanelAddPartecipant" method="_on_ConfirmPartecipantButton_pressed"]

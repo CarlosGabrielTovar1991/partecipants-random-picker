@@ -164,7 +164,7 @@ func enableStartButton():
 		
 
 func _on_CancelMeetingButton_pressed():
-	var _nextScene = get_tree().change_scene("res://Scenes/Menu/Menu.tscn")
+	var _nextScene = CommonScene.goto_scene("res://Scenes/Menu/Menu.tscn")
 
 func find_node_by_name(root, name):
 	if(root.get_name() == name): return root

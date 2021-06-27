@@ -38,10 +38,10 @@ func _ready():
 
 
 func _on_GoToPartecipantsListButton_pressed():
-	var _nextScene = get_tree().change_scene("res://Scenes/Partecipants/Partecipants.tscn")
+	CommonScene.goto_scene("res://Scenes/Partecipants/Partecipants.tscn")
 
 func _on_ExitButton_pressed():
-	get_tree().quit()
+	CommonScene.quitGame()
 
 func _on_StartMeetingButton_pressed():
-	var _nextScene = get_tree().change_scene("res://Scenes/Meeting/Meeting.tscn")
+	CommonScene.goto_scene("res://Scenes/Meeting/LoteryShow.tscn")
