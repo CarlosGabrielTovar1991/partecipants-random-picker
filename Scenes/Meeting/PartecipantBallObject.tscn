@@ -16,12 +16,12 @@ light_mode = 2
 position = Vector2( 39.2715, 41.4951 )
 z_index = 1
 physics_material_override = SubResource( 1 )
-gravity_scale = 30.0
+gravity_scale = 45.0
 can_sleep = false
 
 [node name="CircleCollision" type="CollisionShape2D" parent="."]
 position = Vector2( -0.234871, -0.732002 )
-scale = Vector2( 0.629895, 0.629895 )
+scale = Vector2( 0.752079, 0.752079 )
 z_index = 1
 shape = SubResource( 2 )
 

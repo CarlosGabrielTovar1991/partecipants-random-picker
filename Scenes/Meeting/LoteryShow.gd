@@ -44,7 +44,6 @@ func _ready():
 	meetingEndsStream =  preload("res://Assets/Sounds/meetingends.ogg")
 	meetingEndsStreamMusic =  preload("res://Assets/Sounds/loping_sting.ogg")
 	# Load meeting ends image
-	var textureFromImage = ImageTexture.new()
 	var newImage = preload("res://Assets/Images/hands.jpg")
 	meetingEndsTexture = newImage
 	
@@ -94,6 +93,8 @@ func insertPartecipantOnCurrentMeet(currentPartecipant, processPartecipantObject
 	partecipantBallInstance.set_name(data_Partecipants[currentPartecipant]._id)
 	partecipantBallInstance.set_collision_layer_bit(0, true)
 	partecipantBallInstance.set_collision_mask_bit(0, true)
+	partecipantBallInstance.set_collision_layer_bit(1, false)
+	partecipantBallInstance.set_collision_mask_bit(1, false)
 	partecipantBallInstance.set_collision_layer_bit(10, false)
 	partecipantBallInstance.set_collision_mask_bit(10, false)
 	partecipantBallInstance.set_z_index(1)
@@ -103,7 +104,7 @@ func insertPartecipantOnCurrentMeet(currentPartecipant, processPartecipantObject
 	if (fromQuick == true && isSelectionOver == true):
 		if (partecipantsIdArray.size() == 1):
 			$CallNextOneButton.text = "FINALIZZARE IL MEETING"
-		else:
+		elif (currentPartecipantId != null):
 			$CallNextOneButton.text = "AVANTI IL PROSSIMO!"
 			$SkipPartecipantButton.disabled = false
 			$SkipPartecipantButton.visible = true
@@ -111,7 +112,7 @@ func insertPartecipantOnCurrentMeet(currentPartecipant, processPartecipantObject
 func shufflePartecipantsList():
 	var shuffledList = []
 	var indexList = range(partecipantsIdArrayDisplay.size())
-	for i in range(partecipantsIdArrayDisplay.size()):
+	for _i in range(partecipantsIdArrayDisplay.size()):
 		randomNumberGenerator.randomize()
 		var x = randomNumberGenerator.randi() % indexList.size()
 		shuffledList.append(partecipantsIdArrayDisplay[indexList[x]])
@@ -152,9 +153,6 @@ func _on_WelcomeMusicStream_finished():
 func enableStartButton():
 	if (meetWelcomeEnd == true && partecipantsLoaded == true):
 		meetCanStart = true
-		$BallsContainer/TopCover/CollisionArea1.disabled = false
-		$BallsContainer/TopCover/CollisionArea2.disabled = false
-		$BallsContainer/TopCover/CollisionArea3.disabled = false
 		$CallNextOneButton.disabled = false
 		$CallNextOneButton.visible = true
 		$CancelMeetingButton.disabled = false
@@ -176,11 +174,9 @@ func find_node_by_name(root, name):
 	return null
 
 func startPartecipartSelectionProcess():
-	$BallsContainer/PushTop/AreaCollition.disabled = false
-	$BallsContainer/PushTopLeft/AreaCollition.disabled = false
-	$BallsContainer/PushTopRight/AreaCollition.disabled = false
-	$BallsContainer/PushUpLeft/AreaCollition.disabled = false
-	$BallsContainer/PushUpRight/AreaCollition.disabled = false
+	$BallsContainer/PushUp/AreaCollision.disabled = false
+	$BallsContainer/PushLeft/AreaCollision.disabled = false
+	$BallsContainer/PushRight/AreaCollision.disabled = false
 	$SelectingMusicStream.play()
 	$Timer.start()
 	partecipantsWheelId = 0
@@ -204,8 +200,8 @@ func _on_CallNextOneButton_pressed(skipped = false):
 		currentPartecipantId = partecipantsIdArray[get_random_number()]
 		startPartecipartSelectionProcess()
 	else:
+		partecipantBallInstance = find_node_by_name(get_tree().get_root(), data_Partecipants.get(currentPartecipantId)._id)
 		if (skipped == false):
-			partecipantBallInstance = find_node_by_name(get_tree().get_root(), data_Partecipants.get(currentPartecipantId)._id)
 			partecipantsIdArray.erase(currentPartecipantId)
 		if (partecipantsIdArray.size() > 0):
 			while(currentId == currentPartecipantId):
@@ -216,12 +212,21 @@ func _on_CallNextOneButton_pressed(skipped = false):
 		if (skipped == false):
 			partecipantBallInstance.set_z_index(2)
 			partecipantBallInstance.set_mode(0)
-			partecipantBallInstance.set_collision_layer_bit(0, true)
-			partecipantBallInstance.set_collision_mask_bit(0, true)
+			partecipantBallInstance.set_collision_layer_bit(0, false)
+			partecipantBallInstance.set_collision_mask_bit(0, false)
+			partecipantBallInstance.set_collision_layer_bit(1, true)
+			partecipantBallInstance.set_collision_mask_bit(1, true)
 			partecipantBallInstance.set_collision_layer_bit(10, false)
 			partecipantBallInstance.set_collision_mask_bit(10, false)
 			yield(get_tree().create_timer(5),"timeout")
 			partecipantBallInstance.queue_free()
+		else:
+			partecipantBallInstance.set_collision_layer_bit(1, false)
+			partecipantBallInstance.set_collision_mask_bit(1, false)
+			partecipantBallInstance.set_collision_layer_bit(0, true)
+			partecipantBallInstance.set_collision_mask_bit(0, true)
+			partecipantBallInstance.set_collision_layer_bit(10, false)
+			partecipantBallInstance.set_collision_mask_bit(10, false)
 
 func _on_PartecipantNameAudioStream_finished():
 	$SelectedMusicStream.play()
@@ -231,22 +236,22 @@ func displayCurrentPartecipantData(currentPartecipantData):
 	$ShowPartecipantContainerSquare/ShowPartecipantPicture.set_texture(currentPartecipantData.imageTextureData)
 
 func setCurrentPartecipantData(currentPartecipantData):
-	$LightBulbs.setStatus('oddEvenLoop')
+	$LightBulbs.setStatus('loop')
 	displayCurrentPartecipantData(currentPartecipantData)
 	$PartecipantNameAudioStream.stream = currentPartecipantData.audioStreamData
 	$PartecipantNameAudioStream.play()
 
 func _on_SelectingMusicStream_finished():
 	isSelectingNextPartecipant = false
-	$BallsContainer/PushTop/AreaCollition.disabled = true
-	$BallsContainer/PushTopLeft/AreaCollition.disabled = true
-	$BallsContainer/PushTopRight/AreaCollition.disabled = true
-	$BallsContainer/PushUpLeft/AreaCollition.disabled = true
-	$BallsContainer/PushUpRight/AreaCollition.disabled = true
+	$BallsContainer/PushUp/AreaCollision.disabled = true
+	$BallsContainer/PushLeft/AreaCollision.disabled = true
+	$BallsContainer/PushRight/AreaCollision.disabled = true
 	var partecipantBallInstance = null
 	partecipantBallInstance = find_node_by_name(get_tree().get_root(), data_Partecipants.get(currentPartecipantId)._id)
 	partecipantBallInstance.set_collision_layer_bit(0, false)
 	partecipantBallInstance.set_collision_mask_bit(0, false)
+	partecipantBallInstance.set_collision_layer_bit(1, false)
+	partecipantBallInstance.set_collision_mask_bit(1, false)
 	partecipantBallInstance.set_collision_layer_bit(10, true)
 	partecipantBallInstance.set_collision_mask_bit(10, true)
 	partecipantBallInstance.set_z_index(4)
