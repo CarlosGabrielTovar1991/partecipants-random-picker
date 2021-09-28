@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Assets/Images/GlassRender.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/Meeting/LoteryShow.gd" type="Script" id=2]
@@ -15,27 +15,18 @@
 [ext_resource path="res://Scenes/Partecipants/ShowPartecipantContainerSquare.tscn" type="PackedScene" id=14]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 131.121, 39.6281 )
-
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 22.837, 3.23868 )
-
-[sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 5.23823, 13.985 )
-
-[sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 23.6392, 208.188 )
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 300.533, 13.8267 )
 
-[sub_resource type="RectangleShape2D" id=6]
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 43.1101, 15.0933 )
 
-[sub_resource type="RectangleShape2D" id=7]
+[sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 52.3247, 15.4642 )
 
-[sub_resource type="RectangleShape2D" id=8]
+[sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 47.0576, 10 )
 
 [node name="LoteryShowControl" type="Control"]
@@ -59,51 +50,57 @@ __meta__ = {
 }
 
 [node name="PushUp" type="Area2D" parent="BallsContainer"]
-position = Vector2( 186.766, 346.982 )
-scale = Vector2( 0.343556, 0.85004 )
+position = Vector2( 260.533, 286.17 )
+rotation = 1.57079
+scale = Vector2( 0.472566, 0.274412 )
 space_override = 3
-gravity_vec = Vector2( 0, -3 )
+gravity_vec = Vector2( 0, -1 )
 linear_damp = 0.0
 angular_damp = 0.0
 
-[node name="PushUpAreaCollision" type="CollisionShape2D" parent="BallsContainer/PushUp"]
-position = Vector2( -1.87964, 0.00622559 )
-scale = Vector2( 0.974068, 0.313844 )
-shape = SubResource( 1 )
+[node name="PushUpAreaCollision" type="CollisionPolygon2D" parent="BallsContainer/PushUp"]
+position = Vector2( 0, 28.0477 )
+scale = Vector2( 18.3822, 33.3452 )
+polygon = PoolVector2Array( -5.34055, 6.63881, 12.0104, 6.63891, 10.1142, -1.01203, 4.14094, -8.48298, -5.75628, -11.9246 )
 disabled = true
-one_way_collision = true
 
 [node name="PushLeft" type="Area2D" parent="BallsContainer"]
-position = Vector2( 161.001, 161.993 )
-scale = Vector2( 0.343556, 0.85004 )
+position = Vector2( 271.694, 133.976 )
+rotation = -3.14159
+scale = Vector2( 0.714613, 0.7607 )
 space_override = 3
 gravity_vec = Vector2( -1, 0 )
 linear_damp = 0.0
 angular_damp = 0.0
 
-[node name="PushLeftAreaCollision" type="CollisionShape2D" parent="BallsContainer/PushLeft"]
-position = Vector2( -1.44727, 1.52301 )
-rotation = -1.57079
-scale = Vector2( 2.74707, 14.9493 )
-shape = SubResource( 2 )
+[node name="PushLeftAreaCollision" type="CollisionPolygon2D" parent="BallsContainer/PushLeft"]
+scale = Vector2( 12.7344, -9.17278 )
+polygon = PoolVector2Array( 8.87617, 10.8936, -10.3016, 10.6433, -8.00021, -1.61208, -1.8633, -10.1158, 9.25982, -14.3676 )
 disabled = true
-one_way_collision = true
+
+[node name="PushDown" type="Area2D" parent="BallsContainer"]
+position = Vector2( 98.0573, 137.28 )
+space_override = 3
+
+[node name="PushDownAreaCollision" type="CollisionPolygon2D" parent="BallsContainer/PushDown"]
+position = Vector2( -2.61487, -11.7669 )
+scale = Vector2( 8.78757, 9.24961 )
+polygon = PoolVector2Array( 8.42929, 8.52677, 8.20612, -9.77802, 0.320686, -6.95103, -7.1928, 0.328485, -9.35014, 8.59745 )
+disabled = true
 
 [node name="PushRight" type="Area2D" parent="BallsContainer"]
-position = Vector2( 215.162, 163.093 )
+position = Vector2( 98.4825, 289.424 )
 scale = Vector2( 1.7524, 12.8839 )
 space_override = 3
 gravity_vec = Vector2( 1, 0 )
 linear_damp = 0.0
 angular_damp = 0.0
 
-[node name="PushRightAreaCollision" type="CollisionShape2D" parent="BallsContainer/PushRight"]
-position = Vector2( -0.121576, -3.05176e-05 )
-rotation = 1.57079
-scale = Vector2( 0.760309, 0.666126 )
-shape = SubResource( 3 )
+[node name="PushRightAreaCollision" type="CollisionPolygon2D" parent="BallsContainer/PushRight"]
+position = Vector2( 0.746078, 1.26847 )
+scale = Vector2( 5.20739, 0.666563 )
+polygon = PoolVector2Array( 7.99896, 9.35592, 7.99896, -7.61889, -9.33709, -7.99949, -6.25672, 0.449856, -0.454155, 6.15887 )
 disabled = true
-one_way_collision = true
 
 [node name="ReturnUpForce" type="Area2D" parent="BallsContainer"]
 position = Vector2( 184.148, -20.9267 )
@@ -114,7 +111,7 @@ linear_damp = 0.0
 
 [node name="ReturnUp" type="CollisionShape2D" parent="BallsContainer/ReturnUpForce"]
 position = Vector2( 1090.08, 509.283 )
-shape = SubResource( 4 )
+shape = SubResource( 1 )
 
 [node name="ReturnLeftForce" type="Area2D" parent="BallsContainer"]
 position = Vector2( 157.703, -17.9883 )
@@ -125,9 +122,10 @@ linear_damp = 0.0
 
 [node name="ReturnLeft" type="CollisionShape2D" parent="BallsContainer/ReturnLeftForce"]
 position = Vector2( 846.157, 283.843 )
-shape = SubResource( 5 )
+shape = SubResource( 2 )
 
 [node name="ContainerBoundaries" type="StaticBody2D" parent="BallsContainer"]
+visible = false
 z_index = 3
 collision_layer = 1027
 collision_mask = 1027
@@ -161,7 +159,7 @@ __meta__ = {
 [node name="ReturnBlock" type="CollisionShape2D" parent="BallsContainer/ContainerBlockers"]
 position = Vector2( 375.062, 214.321 )
 rotation = -1.55678
-shape = SubResource( 6 )
+shape = SubResource( 3 )
 one_way_collision = true
 __meta__ = {
 "_edit_lock_": true
@@ -171,7 +169,7 @@ __meta__ = {
 position = Vector2( 182.55, 26.7454 )
 rotation = -3.14359
 scale = Vector2( 0.933437, 0.928426 )
-shape = SubResource( 6 )
+shape = SubResource( 3 )
 one_way_collision = true
 __meta__ = {
 "_edit_lock_": true
@@ -179,20 +177,21 @@ __meta__ = {
 
 [node name="BottomBlock" type="CollisionShape2D" parent="BallsContainer/ContainerBlockers"]
 position = Vector2( 184.148, 403.627 )
-shape = SubResource( 7 )
+shape = SubResource( 4 )
 one_way_collision = true
 __meta__ = {
 "_edit_lock_": true
 }
 
 [node name="SelectionBlockers" type="StaticBody2D" parent="BallsContainer"]
+visible = false
 z_index = 3
 collision_layer = 1024
 collision_mask = 1024
 
 [node name="BottomBlocker" type="CollisionShape2D" parent="BallsContainer/SelectionBlockers"]
 position = Vector2( 609.419, 604.693 )
-shape = SubResource( 8 )
+shape = SubResource( 5 )
 
 [node name="QuickAddLayer" type="CanvasLayer" parent="."]
 

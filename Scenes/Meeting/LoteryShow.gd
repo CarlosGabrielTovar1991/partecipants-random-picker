@@ -177,6 +177,7 @@ func startPartecipartSelectionProcess():
 	$BallsContainer/PushUp/PushUpAreaCollision.disabled = false
 	$BallsContainer/PushLeft/PushLeftAreaCollision.disabled = false
 	$BallsContainer/PushRight/PushRightAreaCollision.disabled = false
+	$BallsContainer/PushDown/PushDownAreaCollision.disabled = false
 	$SelectingMusicStream.play()
 	$Timer.start()
 	partecipantsWheelId = 0
@@ -246,6 +247,7 @@ func _on_SelectingMusicStream_finished():
 	$BallsContainer/PushUp/PushUpAreaCollision.disabled = true
 	$BallsContainer/PushLeft/PushLeftAreaCollision.disabled = true
 	$BallsContainer/PushRight/PushRightAreaCollision.disabled = true
+	$BallsContainer/PushDown/PushDownAreaCollision.disabled = true
 	var partecipantBallInstance = null
 	partecipantBallInstance = find_node_by_name(get_tree().get_root(), data_Partecipants.get(currentPartecipantId)._id)
 	partecipantBallInstance.set_collision_layer_bit(0, false)
