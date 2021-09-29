@@ -19,7 +19,7 @@ scale = Vector2( 0.607677, 0.607677 )
 z_index = 1
 mass = 1.02041
 physics_material_override = SubResource( 1 )
-gravity_scale = 15.0
+gravity_scale = 20.0
 can_sleep = false
 
 [node name="CircleCollision" type="CollisionShape2D" parent="."]
