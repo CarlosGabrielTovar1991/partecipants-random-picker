@@ -6,9 +6,6 @@
 
 [node name="Node2D" type="Control"]
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="TextureRect" type="TextureRect" parent="."]
 margin_left = 516.824
@@ -27,9 +24,9 @@ margin_top = 287.283
 margin_right = 1031.03
 margin_bottom = 390.283
 rect_pivot_offset = Vector2( 315.243, 57.914 )
-custom_fonts/font = ExtResource( 3 )
 custom_colors/font_color = Color( 0, 0.764706, 0.752941, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 3 )
 text = "TEAMS PARTECIPANTS
 RANDOM PICKER"
 align = 1
@@ -46,11 +43,11 @@ margin_left = 510.0
 margin_top = 441.0
 margin_right = 837.0
 margin_bottom = 497.0
-custom_fonts/font = ExtResource( 3 )
 custom_colors/font_color_disabled = Color( 0.27451, 0.254902, 0.254902, 1 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_hover = Color( 0, 0.607843, 0.6, 1 )
 custom_colors/font_color_pressed = Color( 0, 0.607843, 0.6, 1 )
+custom_fonts/font = ExtResource( 3 )
 text = "Iniziare Meeting"
 flat = true
 __meta__ = {
@@ -66,11 +63,11 @@ margin_left = 441.0
 margin_top = 521.0
 margin_right = 912.0
 margin_bottom = 577.0
-custom_fonts/font = ExtResource( 3 )
 custom_colors/font_color_disabled = Color( 0.27451, 0.254902, 0.254902, 1 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_hover = Color( 0, 0.607843, 0.6, 1 )
 custom_colors/font_color_pressed = Color( 0, 0.607843, 0.6, 1 )
+custom_fonts/font = ExtResource( 3 )
 text = "Elenco dei Partecipanti"
 flat = true
 
@@ -79,11 +76,11 @@ margin_left = 630.0
 margin_top = 600.0
 margin_right = 718.0
 margin_bottom = 656.0
-custom_fonts/font = ExtResource( 3 )
 custom_colors/font_color_disabled = Color( 0.27451, 0.254902, 0.254902, 1 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
 custom_colors/font_color_pressed = Color( 1, 0, 0, 1 )
+custom_fonts/font = ExtResource( 3 )
 text = "Esci"
 flat = true
 __meta__ = {
@@ -97,7 +94,7 @@ margin_top = -12.0
 margin_right = 1294.0
 margin_bottom = 733.0
 mouse_filter = 2
-color = Color( 0.737255, 0.619608, 0.0862745, 1 )
+color = Color( 0.278431, 0.427451, 0.439216, 1 )
 __meta__ = {
 "_edit_lock_": true,
 "_edit_use_anchors_": false

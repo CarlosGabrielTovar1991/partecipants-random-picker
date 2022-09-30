@@ -42,7 +42,7 @@ func _ready():
 	nextPartecipantStream = preload("res://Assets/Sounds/nextpartecipant.ogg")
 	# Load meeting Ends Stream
 	meetingEndsStream =  preload("res://Assets/Sounds/meetingends.ogg")
-	meetingEndsStreamMusic =  preload("res://Assets/Sounds/loping_sting.ogg")
+	# meetingEndsStreamMusic =  preload("res://Assets/Sounds/loping_sting.ogg")
 	# Load meeting ends image
 	var newImage = preload("res://Assets/Images/hands.jpg")
 	meetingEndsTexture = newImage
@@ -98,7 +98,7 @@ func insertPartecipantOnCurrentMeet(currentPartecipant, processPartecipantObject
 	partecipantBallInstance.set_collision_layer_bit(10, false)
 	partecipantBallInstance.set_collision_mask_bit(10, false)
 	partecipantBallInstance.set_z_index(1)
-	partecipantBallInstance.position = Vector2(285, -25)
+	partecipantBallInstance.position = Vector2(250, -25)
 	add_child(partecipantBallInstance)
 	partecipantsIdArray.push_back(data_Partecipants[currentPartecipant]._id)
 	if (fromQuick == true && isSelectionOver == true):
@@ -196,7 +196,6 @@ func get_random_number():
 func _on_CallNextOneButton_pressed(skipped = false):
 	var partecipantBallInstance = null
 	var currentId = currentPartecipantId
-	
 	if (currentPartecipantId == null):
 		currentPartecipantId = partecipantsIdArray[get_random_number()]
 		startPartecipartSelectionProcess()
@@ -211,7 +210,7 @@ func _on_CallNextOneButton_pressed(skipped = false):
 		else:
 			finishMeeting()
 		if (skipped == false):
-			partecipantBallInstance.set_z_index(2)
+			partecipantBallInstance.set_z_index(6)
 			partecipantBallInstance.set_mode(0)
 			partecipantBallInstance.set_collision_layer_bit(0, false)
 			partecipantBallInstance.set_collision_mask_bit(0, false)
@@ -222,6 +221,7 @@ func _on_CallNextOneButton_pressed(skipped = false):
 			yield(get_tree().create_timer(5),"timeout")
 			partecipantBallInstance.queue_free()
 		else:
+			partecipantBallInstance.set_z_index(1)
 			partecipantBallInstance.set_collision_layer_bit(1, false)
 			partecipantBallInstance.set_collision_mask_bit(1, false)
 			partecipantBallInstance.set_collision_layer_bit(0, true)
@@ -241,6 +241,7 @@ func setCurrentPartecipantData(currentPartecipantData):
 	displayCurrentPartecipantData(currentPartecipantData)
 	$PartecipantNameAudioStream.stream = currentPartecipantData.audioStreamData
 	$PartecipantNameAudioStream.play()
+	$SelectingBgMusic.play()
 
 func _on_SelectingMusicStream_finished():
 	isSelectingNextPartecipant = false
@@ -256,9 +257,8 @@ func _on_SelectingMusicStream_finished():
 	partecipantBallInstance.set_collision_mask_bit(1, false)
 	partecipantBallInstance.set_collision_layer_bit(10, true)
 	partecipantBallInstance.set_collision_mask_bit(10, true)
-	partecipantBallInstance.set_z_index(4)
+	partecipantBallInstance.set_z_index(0)
 	$Timer.stop()
-	$YouAreTheChoosedOne.play()
 	setCurrentPartecipantData(processPartecipants.get(currentPartecipantId))
 
 func _on_SelectedMusicStream_finished():

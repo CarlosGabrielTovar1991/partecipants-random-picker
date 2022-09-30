@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/go_italian.ogg-d255cdce04cc846aa4633817a3f99d55.oggstr"
+
+[deps]
+
+source_file="res://Assets/Sounds/go_italian.ogg"
+dest_files=[ "res://.import/go_italian.ogg-d255cdce04cc846aa4633817a3f99d55.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

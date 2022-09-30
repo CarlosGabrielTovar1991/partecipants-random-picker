@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/tarantella.ogg-5c916492354660f7524ebd6d570276ef.oggstr"
+
+[deps]
+
+source_file="res://Assets/Sounds/tarantella.ogg"
+dest_files=[ "res://.import/tarantella.ogg-5c916492354660f7524ebd6d570276ef.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

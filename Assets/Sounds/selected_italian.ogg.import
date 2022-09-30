@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/selected_italian.ogg-608aca2ccf93d53b888f62d808476153.oggstr"
+
+[deps]
+
+source_file="res://Assets/Sounds/selected_italian.ogg"
+dest_files=[ "res://.import/selected_italian.ogg-608aca2ccf93d53b888f62d808476153.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
